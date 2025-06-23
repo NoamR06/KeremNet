@@ -1,35 +1,51 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { Comment } from "./Comment/Comment";
-import { Post } from "./Post/Post";
 import './PostComponent.css';
+import { AddCommentButton } from "./AddCommentForm/AddCommentForm";
 
-interface Props{
+export interface PostComponentProps {
   id: string;
   author: string;
   content: string;
   date: Date;
-  likes: number;
-  comments: Comment[];
+  post_likes: number;
+  post_comments: Comment[];
 }
 
-export const PostComponent: React.FC<{ post: Post }> = ({ post }) => {
-  const [likes, setLikes] = useState(post.likes);
-  const [comments, setComments] = useState(post.comments);
+export const PostComponent: React.FC<PostComponentProps> = ({id, author, content, date, post_likes, post_comments}) => {
+  const [likes, setLikes] = useState(post_likes);
+  const [comments, setComments] = useState(post_comments);
+  const [inputUsername, setInputUsername] = useState<string>('');
+  const [inputContent, setInputContent] = useState<string>('');
+
+  const handleInputUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputUsername(event.target.value);
+  };
+
+  const handleInputContentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputContent(event.target.value);
+  };
+
 
   const handleLike = () => {
     setLikes(likes + 1);
   };
 
-  const handleAddComment = (comment: Comment) => {
-    setComments([...comments, comment]);
+  const handleAddComment = () => {
+    setComments([...comments, ({
+      id: uuidv4(),
+      author: inputUsername || "Anonymous",
+      content: inputContent || "No content",
+      date: new Date(),
+    })]);
   };
 
   return (
     <div className="post">
-      <p id="post_author">{post.author}</p>
-      <p id="post_content">{post.content}</p>
-      <p id="post_release_date">{post.date.toLocaleDateString()} at {post.date.toLocaleTimeString()}</p>
+      <p id="post_author">{author}</p>
+      <p id="post_content">{content}</p>
+      <p id="post_release_date">{date.toLocaleDateString()} at {date.toLocaleTimeString()}</p>
       <button id="post_like_button" onClick={handleLike}>Like ({likes})</button>
       <div className="comments">
         <h2>Comments</h2>
@@ -39,16 +55,9 @@ export const PostComponent: React.FC<{ post: Post }> = ({ post }) => {
             <p id="post_comment_date">{comment.date.toLocaleDateString()} at {comment.date.toLocaleTimeString()}</p>
           </div>
         ))}
-        <input type="text" id="post_add_comment_name" placeholder="User name" />
-        <input type="text" id="post_add_comment_content" placeholder="Comment content" />
-        <button id="post_add_comment_button" onClick={() => handleAddComment({
-          id: uuidv4(),
-          author: (document.getElementById("post_add_comment_name") as HTMLInputElement)?.value || "Anonymous",
-          content: (document.getElementById("post_add_comment_content") as HTMLInputElement)?.value || "No content",
-          date: new Date(),
-        })}>
-          Add Comment
-        </button>
+        <input type="text" value={inputUsername} onChange={handleInputUsernameChange} id="post_add_comment_name" placeholder="User name" />
+        <input type="text" value={inputContent} onChange={handleInputContentChange} id="post_add_comment_content" placeholder="Comment content" />
+        <AddCommentButton onButtonClick={handleAddComment} />
       </div>
     </div>
 
