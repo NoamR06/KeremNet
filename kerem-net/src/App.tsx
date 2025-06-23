@@ -1,26 +1,32 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { PostComponent } from './Features/Post/PostComponent';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+    <PostComponent post={
+      {
+        id: '1',
+        author: 'Noam Reshef',
+        content: 'This is a simple Kerem Content Post.',
+        date: new Date(),
+        likes: 0,
+        comments: [
+          {
+            id: '1',
+            author: 'Zoee Zebra',
+            content: 'This is a comment on the post.',
+            date: new Date(),
+          },
+          {
+            id: '2',
+            author: 'Master Shifo',
+            content: 'This is another comment on the post.',
+            date: new Date(),
+          },
+        ],
+    }}></PostComponent>
+  )
+};
 export default App;
