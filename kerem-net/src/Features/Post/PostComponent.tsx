@@ -4,6 +4,15 @@ import { Comment } from "./Comment/Comment";
 import { Post } from "./Post/Post";
 import './PostComponent.css';
 
+interface Props{
+  id: string;
+  author: string;
+  content: string;
+  date: Date;
+  likes: number;
+  comments: Comment[];
+}
+
 export const PostComponent: React.FC<{ post: Post }> = ({ post }) => {
   const [likes, setLikes] = useState(post.likes);
   const [comments, setComments] = useState(post.comments);
