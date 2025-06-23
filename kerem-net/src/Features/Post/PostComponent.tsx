@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useState } from "react";
 
-interface Comment {
-    id: string;
-    author: string;
-    text: string;
-    date: string;
+export interface Comment {
+  id: string;
+  author: string;
+  content: string;
+  date: Date;
 }
 
-interface SocialMediaPostPros {
-    id: string;
-    authorName: string;
-    content: string;
-    likes: number;
-    postDate: string;
-    comments: Comment[];
+export interface Post {
+  id: string;
+  author: string;
+  content: string;
+  date: Date;
+  likes: number;
+  comments: Comment[];
+}
+
+export const PostComponent: React.FC<{ post: Post }> = ({ post }) => {
+  const [likes, setLikes] = useState(post.likes);
+  const [comments, setComments] = useState(post.comments);
+
+  const handleLike = () => {
+    setLikes(likes + 1);
+  };
+
+  const handleAddComment = (comment: Comment) => {
+    setComments([...comments, comment]);
+  };
 }
