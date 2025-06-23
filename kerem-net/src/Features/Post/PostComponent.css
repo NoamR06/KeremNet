@@ -4,7 +4,7 @@
   border: 1em solid #e5e7eb;
   border-radius: 1em;
   margin: 1em;
-  font-family: system-ui, sans-serif;
+  font-family: sans-serif;
 }
 
 .post {
@@ -12,7 +12,7 @@
   border: solid #e5e7eb;
   border-radius: 1em;
   margin: 1em;
-  font-family: system-ui, sans-serif;
+  font-family: sans-serif;
 }
 
 #post_author {
@@ -55,7 +55,6 @@
   padding-top: 1vh;
 }
 
-/* Scrollable comments container */
 .comments {
   max-height: 22vh;
   overflow-y: auto;
@@ -86,7 +85,6 @@
   margin: 0;
 }
 
-/* Comment input styles */
 #post_add_comment_name,
 #post_add_comment_content {
   width: 95%;
@@ -96,7 +94,7 @@
   font-size: 0.8em;
   margin-bottom: 0.3em;
   box-sizing: border-box;
-  font-family: inherit;
+  font-family: sans-serif;
 }
 
 #post_add_comment_name:focus,

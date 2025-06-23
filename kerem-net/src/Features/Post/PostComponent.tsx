@@ -1,22 +1,8 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { Comment } from "./Comment/Comment";
+import { Post } from "./Post/Post";
 import './PostComponent.css';
-
-export interface Comment {
-  id: string;
-  author: string;
-  content: string;
-  date: Date;
-}
-
-export interface Post {
-  id: string;
-  author: string;
-  content: string;
-  date: Date;
-  likes: number;
-  comments: Comment[];
-}
 
 export const PostComponent: React.FC<{ post: Post }> = ({ post }) => {
   const [likes, setLikes] = useState(post.likes);
@@ -34,14 +20,14 @@ export const PostComponent: React.FC<{ post: Post }> = ({ post }) => {
     <div className="post">
       <p id="post_author">{post.author}</p>
       <p id="post_content">{post.content}</p>
-      <p id="post_release_date">{post.date.toLocaleDateString()}</p>
+      <p id="post_release_date">{post.date.toLocaleDateString()} at {post.date.toLocaleTimeString()}</p>
       <button id="post_like_button" onClick={handleLike}>Like ({likes})</button>
       <div className="comments">
         <h2>Comments</h2>
         {comments.map((comment) => (
           <div key={comment.id} className="comment">
             <p id="post_comment_content"><strong>{comment.author}</strong>: {comment.content}</p>
-            <p id="post_comment_date">{comment.date.toLocaleDateString()}</p>
+            <p id="post_comment_date">{comment.date.toLocaleDateString()} at {comment.date.toLocaleTimeString()}</p>
           </div>
         ))}
         <input type="text" id="post_add_comment_name" placeholder="User name" />
