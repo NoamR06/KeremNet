@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3em;
+  padding: 2em;
+}
