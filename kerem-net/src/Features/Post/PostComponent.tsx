@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Comment } from "./Comment/Comment";
 import './PostComponent.css';
 import { AddCommentButton } from "./AddCommentForm/AddCommentForm";
+import { CommentsSection } from "./Comment/CommentSection";
 
 export interface PostComponentProps {
   id: string;
@@ -49,12 +50,7 @@ export const PostComponent: React.FC<PostComponentProps> = ({id, author, content
       <button id="post_like_button" onClick={handleLike}>Like ({likes})</button>
       <div className="comments">
         <h2>Comments</h2>
-        {comments.map((comment) => (
-          <div key={comment.id} className="comment">
-            <p id="post_comment_content"><strong>{comment.author}</strong>: {comment.content}</p>
-            <p id="post_comment_date">{comment.date.toLocaleDateString()} at {comment.date.toLocaleTimeString()}</p>
-          </div>
-        ))}
+        <CommentsSection comments={comments} />
         <input type="text" value={inputUsername} onChange={handleInputUsernameChange} id="post_add_comment_name" placeholder="User name" />
         <input type="text" value={inputContent} onChange={handleInputContentChange} id="post_add_comment_content" placeholder="Comment content" />
         <AddCommentButton onButtonClick={handleAddComment} />
