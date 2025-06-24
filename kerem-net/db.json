@@ -4,7 +4,7 @@
             "id": 1,
             "author": "Kerem",
             "content": "Hello, this is my first post!",
-            "date": "2023-10-01T12:00:00Z",
+            "date": "2025-06-24T12:00:00Z",
             "likes": 0,
             "comments": [
                 {
@@ -27,7 +27,7 @@
             "id": 2,
             "author": "Noam",
             "content": "I think kerem is the best course!",
-            "date": "2023-10-01T12:05:00Z",
+            "date": "2025-05-01T12:05:00Z",
             "likes": 0,
             "comments": []
         },
@@ -35,7 +35,7 @@
             "id": 3,
             "author": "Zoee",
             "content": "I'm the best zebra",
-            "date": "2023-10-01T12:10:00Z",
+            "date": "2025-01-01T12:10:00Z",
             "likes": 0,
             "comments": []
         }

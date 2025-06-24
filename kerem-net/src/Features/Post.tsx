@@ -36,6 +36,15 @@ export const Posts: React.FC = () => {
     }, []);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>; 
+
+    posts.forEach(({comments}) => {
+        comments.forEach((comment) => {
+            if (typeof comment.date === 'string') {
+                comment.date = new Date(comment.date);
+            }
+        });
+    });
+
     return (
         <div className="posts-container">
             {
