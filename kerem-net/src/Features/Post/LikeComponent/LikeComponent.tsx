@@ -13,7 +13,7 @@ export const LikeComponent = ({ post_likes }: LikeComponentProps) => {
 
   return (
     <div>
-      <button id="post_like_button" onClick={handleLike}>Like ({post_likes})</button>
+      <button id="post_like_button" onClick={handleLike}>Like ({likes})</button>
     </div>
   )
 }

@@ -1,16 +1,16 @@
 import React from 'react';
-import { Comment } from './Comment';
-import "./CommentSection.css";
+import { Comment } from '../Comment';
+import "./UserComments.css";
 
-export interface CommentsSectionProps {
-  comments: Comment[];
+export interface UserCommentsProps {
+  post_comments: Comment[];
 }
 
-export const CommentsSection: React.FC<CommentsSectionProps> = ({ comments }) => {
+export const UserComments: React.FC<UserCommentsProps> = ({ post_comments }) => {
   return (
     <div>
-              { (!(comments === undefined)) && comments.length > 0 ? (
-          comments.map(({author, content, date}) => (
+              { (!(post_comments === undefined)) && post_comments.length > 0 ? (
+          post_comments.map(({author, content, date}) => (
           <div className="comment">
             <p id="post_comment_content"><strong>{author}</strong>: {content}</p>
             <p id="post_comment_date">{date.toLocaleDateString()} at {date.toLocaleTimeString()}</p>

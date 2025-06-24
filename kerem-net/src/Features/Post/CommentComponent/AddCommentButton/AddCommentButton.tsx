@@ -1,6 +1,5 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { Comment } from '../Comment/Comment';
+import "./AddCommentButton.css"
 
 interface AddCommentButtonProps {
   onButtonClick: () => void;
