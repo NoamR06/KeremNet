@@ -4,6 +4,7 @@ import { Comment } from "./Comment/Comment";
 import './PostComponent.css';
 import { AddCommentButton } from "./AddCommentForm/AddCommentForm";
 import { CommentsSection } from "./Comment/CommentSection";
+import { LikeComponent } from "./LikeComponent/LikeComponent";
 
 export interface PostComponentProps {
   id: string;
@@ -47,7 +48,7 @@ export const PostComponent: React.FC<PostComponentProps> = ({id, author, content
       <p id="post_author">{author}</p>
       <p id="post_content">{content}</p>
       <p id="post_release_date">{date.toLocaleDateString()} at {date.toLocaleTimeString()}</p>
-      <button id="post_like_button" onClick={handleLike}>Like ({likes})</button>
+      <LikeComponent post_likes={likes} />
       <div className="comments">
         <h2>Comments</h2>
         <CommentsSection comments={comments} />
