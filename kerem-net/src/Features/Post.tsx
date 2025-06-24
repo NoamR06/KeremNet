@@ -7,8 +7,8 @@ interface Post {
     author: string;
     content: string;
     date: string;
-    post_likes: number;
-    post_comments: Comment[];
+    likes: number;
+    comments: Comment[];
 }
 
 export const Posts: React.FC = () => {
@@ -34,15 +34,22 @@ export const Posts: React.FC = () => {
 
     fetchPosts();
     }, []);
-
-    if (error) return <p>Error: {error}</p>;
-
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>; 
     return (
         <div className="posts-container">
-            {posts.map(({id, author, content, date, post_likes, post_comments}) => (
-            <PostComponent id={id} author={author} content={content}
-            date={new Date(date)} post_likes={post_likes} post_comments={post_comments}></PostComponent>
-            ))}
+            {
+                posts.map(({id, author, content, date, likes, comments}) => (
+                    <PostComponent
+                    id = {id}
+                    author = {author}
+                    content = {content}
+                    date = {new Date(date)}
+                    post_likes = {likes}
+                    post_comments = {comments}
+                    />
+                ))  
+            }
         </div>
     );
 }

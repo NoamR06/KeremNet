@@ -40,7 +40,7 @@ export const PostComponent: React.FC<PostComponentProps> = ({id, author, content
       date: new Date(),
     })]);
   };
-
+  console.log(comments);
   return (
     <div className="post">
       <p id="post_author">{author}</p>
@@ -49,12 +49,16 @@ export const PostComponent: React.FC<PostComponentProps> = ({id, author, content
       <button id="post_like_button" onClick={handleLike}>Like ({likes})</button>
       <div className="comments">
         <h2>Comments</h2>
-        {comments.map((comment) => (
-          <div key={comment.id} className="comment">
-            <p id="post_comment_content"><strong>{comment.author}</strong>: {comment.content}</p>
-            <p id="post_comment_date">{comment.date.toLocaleDateString()} at {comment.date.toLocaleTimeString()}</p>
+        { (!(comments === undefined)) && comments.length > 0 ? (
+          comments.map(({author, content, date}) => (
+          <div className="comment">
+            <p id="post_comment_content"><strong>{author}</strong>: {content}</p>
+            <p id="post_comment_date">{new Date(date).toLocaleDateString()} at {new Date(date).toLocaleTimeString()}</p>
           </div>
-        ))}
+        ))
+        ) : (
+          <p id="post_no_comments">No comments yet.</p>
+        )}
         <input type="text" value={inputUsername} onChange={handleInputUsernameChange} id="post_add_comment_name" placeholder="User name" />
         <input type="text" value={inputContent} onChange={handleInputContentChange} id="post_add_comment_content" placeholder="Comment content" />
         <AddCommentButton onButtonClick={handleAddComment} />
