@@ -14,6 +14,11 @@ export interface PostComponentProps {
 }
 
 export const PostComponent: React.FC<PostComponentProps> = ({id, author, content, date, post_likes, post_comments}) => {
+  // Create 
+  post_comments.map((comment) => (
+    comment.date = new Date(comment.date)
+  ));
+
   return (
     <div className="post">
       <p id="post_author">{author}</p>
