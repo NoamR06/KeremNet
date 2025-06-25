@@ -1,7 +1,6 @@
-import { Comment } from "../Types/Comment";
 import { Post } from "../Types/Post";
-import { body, Result, ValidationChain, ValidationError, validationResult } from 'express-validator';
-import express, { Request, Response, NextFunction } from 'express';
+import { body, Result, ValidationError, validationResult } from 'express-validator';
+import { Request } from 'express';
 
 export class PostsService {
     private postsSaver: Post[];
@@ -19,14 +18,13 @@ export class PostsService {
     ];
 
     public async ValidateNewPost(request: Request): Promise<Result<ValidationError>> {
-        // Run the validation chains on the request
         for (const validation of this.validatePostAddition) {
             await validation.run(request);
         }
         return validationResult(request);
     }
 
-    public async CreatePost(userData: Post) {
+    public CreatePost(userData: Post) {
         this.postsSaver.push(userData);
     }
 
