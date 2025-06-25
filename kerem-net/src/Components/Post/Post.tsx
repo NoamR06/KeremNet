@@ -1,6 +1,7 @@
-import { PostComponent } from "./Post/PostComponent";
-import { Comment } from "./Post/CommentComponent/Comment";
+import { PostComponent } from "./PostComponent/PostComponent";
+import { Comment } from "./CommentComponent/Comment";
 import { useEffect, useState } from "react";
+import './Post.css'
 
 interface Post {
     id: string;

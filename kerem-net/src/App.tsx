@@ -1,11 +1,13 @@
-import React from 'react';
 import './App.css';
-import { PostComponent, PostComponentProps } from './Features/Post/PostComponent';
-import { Posts } from './Features/Post';
+import Navbar from './Components/ApplicationLayout/NavigationBar/navigationBar';
+import { Posts } from './Components/Post/Post';
 
 function App() {
   return (
-    <Posts />
+    <div>
+      <Navbar/>
+      <Posts />
+    </div>
     
   )
 };
