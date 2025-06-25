@@ -1,6 +1,6 @@
 import { Comment } from "../Types/Comment";
 import { Post } from "../Types/Post";
-import { body, Result, ValidationError, validationResult } from 'express-validator';
+import { body, Result, ValidationChain, ValidationError, validationResult } from 'express-validator';
 import express, { Request, Response, NextFunction } from 'express';
 
 export class PostsService {
@@ -10,17 +10,20 @@ export class PostsService {
         this.postsSaver = [];
     }
 
-    public ValidateNewPost(request: Request): Result<ValidationError> {
-        const validatePostAddition = [
-          body('author').notEmpty().withMessage('Author is required'),
-          body('content').notEmpty().withMessage('Content is required'),
-          body('date').notEmpty().withMessage('Date is required').isISO8601().withMessage('Date must be in the correct format'),
-          body('likes').isInt({ min: 0 }).withMessage('Likes must be a non-negative integer'),
-          body('comments').optional().isArray().withMessage('Comments must be an array'),
-        ];
+    private validatePostAddition = [
+        body('author').notEmpty().withMessage('Author is required'),
+        body('content').notEmpty().withMessage('Content is required'),
+        body('date').notEmpty().withMessage('Date is required').isISO8601().withMessage('Date must be in the correct format'),
+        body('likes').isInt({ min: 0 }).withMessage('Likes must be a non-negative integer'),
+        body('comments').optional().isArray().withMessage('Comments must be an array'),
+    ];
 
-        const errors = validationResult(request);
-        return errors;
+    public async ValidateNewPost(request: Request): Promise<Result<ValidationError>> {
+        // Run the validation chains on the request
+        for (const validation of this.validatePostAddition) {
+            await validation.run(request);
+        }
+        return validationResult(request);
     }
 
     public async CreatePost(userData: Post) {
