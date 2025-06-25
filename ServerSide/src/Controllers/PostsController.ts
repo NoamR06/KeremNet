@@ -7,21 +7,6 @@ import * as fs from 'fs/promises';
 let Posts = Data.posts;
 const DATA_FILE = path.join(__dirname, 'data.json')
 
-interface Post{
-    id: string;
-    author: string;
-    content: string;
-    date: string;
-    likes: number;
-    comments: Comment[];
-}
-
-interface Comment {
-  id: string;
-  author: string;
-  content: string;
-  date: Date;
-}
 
 const validatePostAddition = [
   body('author').notEmpty().withMessage('Author is required'),
@@ -31,7 +16,7 @@ const validatePostAddition = [
   body('comments').optional().isArray().withMessage('Comments must be an array'),
 ];
 
-export class UserController {
+export class PostController {
     public async createPost(req: Request, res: Response): Promise<void> {
         const errors = validationResult(req);
         
