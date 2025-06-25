@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom';
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
-      <div className="navbar-left">
-        <img src={logo} alt="Logo" className="navbar-logo" />
-      </div>
       <div className="navbar-links">
           <Link id="navigation_link" to="/">Home Page</Link>
           <Link id="navigation_link" to="/test">Test</Link>
