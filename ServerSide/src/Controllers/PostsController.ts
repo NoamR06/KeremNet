@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { body } from 'express-validator';
 import { Post } from '../Types/Post';
 import { PostsService } from '../Services/PostsServices';
 
@@ -9,22 +8,24 @@ export class PostController {
     private postsService: PostsService;
 
     constructor() {
-        this.postsService = new PostsService(); // Instantiate the service
+        this.postsService = new PostsService();
     }
 
     public async createPost(req: Request, res: Response): Promise<void> {
-        const errors = this.postsService.ValidateNewPost(req);
-        if (!(await errors).isEmpty()) {
-            res.status(400).json({ message: 'Post request Failed:', errors });
+        const errors = await this.postsService.ValidateNewPost(req);
+        if (!(errors).isEmpty()) {
+            res.status(400).json({ message: 'Post request Failed:', errors: errors });
         }
-        try {
+        else{
+            try {
             const new_post : Post = req.body;
             const service_response = this.postsService.CreatePost(new_post);
-            res.status(201).json({ message: 'Post added successfully', post: new_post });
+            res.status(201).json({ message: 'Post added successfully' });
             
-        } catch (error) {
-            console.error('Error adding post:', error);
-            res.status(500).json({ message: 'Internal server error.' });
+            } catch (error) {
+                console.error('Error adding post:', error);
+                res.status(500).json({ message: 'Internal server error.', error});
+            }
         }
     }
 
