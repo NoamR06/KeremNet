@@ -2,11 +2,11 @@ import { Router } from 'express';
 import { PostController } from '../Controllers/PostsController';
 
 const router = Router();
-const userController = new PostController();
+const postController = new PostController();
 
-router.post('/', userController.createPost.bind(userController)); 
-router.get('/', userController.getPosts.bind(userController));
-router.get('/:id/comments', userController.getCommentsByPostID.bind(userController));
-router.get('/:id', userController.getPostByID.bind(userController));
+router.post('/', postController.createPost.bind(postController));
+router.get('/', postController.getPosts.bind(postController));
+router.get('/:id/comments', postController.getCommentsByPostID.bind(postController));
+router.get('/:id', postController.getPostByID.bind(postController));
 
 export default router;

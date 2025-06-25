@@ -4,26 +4,22 @@ import { Post } from '../Types/Post';
 import { PostsService } from '../Services/PostsServices';
 
 
-const validatePostAddition = [
-  body('author').notEmpty().withMessage('Author is required'),
-  body('content').notEmpty().withMessage('Content is required'),
-  body('date').notEmpty().withMessage('Date is required').isISO8601().withMessage('Date must be in the correct format'),
-  body('likes').isInt({ min: 0 }).withMessage('Likes must be a non-negative integer'),
-  body('comments').optional().isArray().withMessage('Comments must be an array'),
-];
-
 export class PostController {
 
-    private userService: PostsService;
+    private postsService: PostsService;
 
     constructor() {
-        this.userService = new PostsService(); // Instantiate the service
+        this.postsService = new PostsService(); // Instantiate the service
     }
 
     public async createPost(req: Request, res: Response): Promise<void> {
+        const errors = this.postsService.ValidateNewPost(req);
+        if (!(await errors).isEmpty()) {
+            res.status(400).json({ message: 'Post request Failed:', errors });
+        }
         try {
             const new_post : Post = req.body;
-            const service_response = this.userService.CreatePost(new_post);
+            const service_response = this.postsService.CreatePost(new_post);
             res.status(201).json({ message: 'Post added successfully', post: new_post });
             
         } catch (error) {
@@ -33,8 +29,8 @@ export class PostController {
     }
 
     public async getPostByID(req: Request, res: Response): Promise<void> {
-        const Posts = this.userService.GetAllPosts();
-        const post = this.userService.GetPostbyID(req.params.id);
+        const Posts = this.postsService.GetAllPosts();
+        const post = this.postsService.GetPostbyID(req.params.id);
         if (post) {
             res.json(post);
         } else {
@@ -43,7 +39,7 @@ export class PostController {
     }
 
     public async getPosts(req: Request, res: Response): Promise<void> {
-        const Posts =this.userService.GetAllPosts();
+        const Posts =this.postsService.GetAllPosts();
         if (Posts){
             res.json(Posts)
         }else {
@@ -52,8 +48,8 @@ export class PostController {
     }
 
     public async getCommentsByPostID(req: Request, res: Response): Promise<void> {
-        const Posts = this.userService.GetAllPosts();
-        const post = await this.userService.GetPostbyID(req.params.id);
+        const Posts = this.postsService.GetAllPosts();
+        const post = await this.postsService.GetPostbyID(req.params.id);
         if (post) {
             res.json(post.comments);
         } else {
