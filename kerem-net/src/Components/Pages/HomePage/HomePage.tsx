@@ -1,6 +1,6 @@
-import Footer from "../ApplicationLayout/Footer/Footer";
-import Navbar from "../ApplicationLayout/NavigationBar/navigationBar";
-import { Posts } from "../Post/Post";
+import Footer from "../../ApplicationLayout/Footer/Footer";
+import Navbar from "../../ApplicationLayout/NavigationBar/navigationBar";
+import { Posts } from "../../Post/Post";
 import "./HomePage.css"
 
 const HomePage: React.FC = () => {
