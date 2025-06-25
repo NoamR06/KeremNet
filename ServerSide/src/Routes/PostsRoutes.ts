@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { UserController } from '../Controllers/PostsController';
+import { PostController } from '../Controllers/PostsController';
 
 const router = Router();
-const userController = new UserController();
+const userController = new PostController();
 
 router.post('/', userController.createPost.bind(userController)); 
 router.get('/', userController.getPosts.bind(userController));
