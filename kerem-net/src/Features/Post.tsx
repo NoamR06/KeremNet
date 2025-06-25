@@ -36,7 +36,7 @@ export const Posts: React.FC = () => {
     fetchPosts();
     }, []);
 
-    if (error) return <p>Error: {error}</p>;
+    if (error) return <p>{error}</p>;
     if (loading) return <p> Loading </p>;
     return (
         <div className="posts-container">
