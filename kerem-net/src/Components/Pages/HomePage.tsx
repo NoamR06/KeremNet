@@ -1,11 +1,14 @@
-import { Fragment } from "react/jsx-runtime";
+import Footer from "../ApplicationLayout/Footer/Footer";
 import Navbar from "../ApplicationLayout/NavigationBar/navigationBar";
 import { Posts } from "../Post/Post";
-import Footer from "../ApplicationLayout/Footer/Footer";
 
 const HomePage: React.FC = () => {
   return (
-    <Posts />
+    <div>
+      <Navbar />
+      <Posts />
+      <Footer />
+    </div>
   );
 };
 export default HomePage;
