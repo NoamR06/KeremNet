@@ -1,7 +1,7 @@
 .grid-container {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    height: 100vh;
+    height: 97vh;
 }
 .top-section {
     grid-row: 1;
