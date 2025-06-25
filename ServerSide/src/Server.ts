@@ -99,6 +99,14 @@ app.get('/posts/:id', (req: Request, res: Response) => {
       }
 });
 
+app.get('/posts', (req: Request, res: Response) => {
+  if (Posts){
+    res.json(Posts)
+  }else {
+      res.status(404).json({ message: 'Post not found' });
+    }
+});
+
 app.get('/posts/:id/comments', (req: Request, res: Response) => {
     const objectId = parseInt(req.params.id);
     const post = Posts.find((post) => post.id === objectId);
@@ -113,5 +121,4 @@ app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
 
-// validation
 // couple of files
