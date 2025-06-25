@@ -26,7 +26,8 @@ export const Posts: React.FC = () => {
         const data: Post[] = await response.json();
         setPosts(data);
         } catch (err: any) {
-        setError(err.message);
+        setError(`Looks like we have an error! Please try re-loading. 
+            If it doesn't work, please contact us with the following error: ${err.message}`);
         } finally {
         setLoading(false);
         }
