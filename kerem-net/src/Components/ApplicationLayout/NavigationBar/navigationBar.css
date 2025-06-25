@@ -2,11 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  height: 64px;
+  padding: 0 2vw;
+  height: 8vh;
   background-color: #1f2937;
   color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .navbar-left {
@@ -15,12 +14,12 @@
 }
 
 .navbar-logo {
-  height: 40px;
+  height: 5vh;
   width: auto;
 }
 
 .navbar-links a {
-  margin-left: 24px;
+  margin-left: 3vw;
   text-decoration: none;
   color: white;
   font-weight: 500;

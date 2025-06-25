@@ -1,6 +1,7 @@
 import React from 'react';
 import './navigationBar.css';
 import logo from '../../assets/logo.png'
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   return (
@@ -9,10 +10,8 @@ const Navbar: React.FC = () => {
         <img src={logo} alt="Logo" className="navbar-logo" />
       </div>
       <div className="navbar-links">
-        <a href="#">KeremOne</a>
-        <a href="#">KeremThree</a>
-        <a href="#">KeremFive</a>
-        <a href="#">KeremSeven</a>
+        <a>Test</a>
+        <a>Test</a>
       </div>
     </nav>
   );
