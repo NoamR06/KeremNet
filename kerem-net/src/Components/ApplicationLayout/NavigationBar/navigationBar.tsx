@@ -10,8 +10,8 @@ const Navbar: React.FC = () => {
         <img src={logo} alt="Logo" className="navbar-logo" />
       </div>
       <div className="navbar-links">
-        <a>Test</a>
-        <a>Test</a>
+          <Link id="navigation_link" to="/">Home Page</Link>
+          <Link id="navigation_link" to="/test">Test</Link>
       </div>
     </nav>
   );

@@ -18,7 +18,7 @@
   width: auto;
 }
 
-.navbar-links a {
+.navbar-links #navigation_link {
   margin-left: 3vw;
   text-decoration: none;
   color: white;
@@ -26,6 +26,6 @@
   transition: color 0.3s;
 }
 
-.navbar-links a:hover {
+.navbar-links #navigation_link:hover {
   color: #60a5fa;
 }

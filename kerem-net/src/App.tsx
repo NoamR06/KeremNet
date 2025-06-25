@@ -1,16 +1,17 @@
 import React, { Fragment } from 'react';
-import Navbar from './Components/ApplicationLayout/NavigationBar/navigationBar';
-import { Posts } from './Components/Post/Post';
-import Footer from './Components/ApplicationLayout/Footer/Footer';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './Components/Pages/HomePage';
+import ApplicationLayout from './Components/ApplicationLayout/ApplicationLayout';
 
 
 
 const App: React.FC = () => {
   return (
     <Fragment>
-      <Navbar />
-      <Posts />
-      <Footer />
+      <ApplicationLayout />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </Fragment>
   );
 };
