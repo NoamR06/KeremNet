@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Comment } from '../Comment';
 import "./CommentsSection.css";
 import { v4 as uuidv4 } from 'uuid';
@@ -33,7 +33,7 @@ export const CommentsSection: React.FC<CommentsProps> = ({ post_id }) => {
         };
 
         fetchComments();
-    }, []);
+    }, [post_id]);
 
     const handleAddComment = (inputUsername: string, inputContent: string) => {
         const newComment: Comment = {

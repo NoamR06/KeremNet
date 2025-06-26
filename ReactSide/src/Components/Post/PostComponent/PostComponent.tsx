@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Comment } from "../CommentComponent/Comment";
 import './PostComponent.css';
 import { CommentsSection } from "../CommentComponent/CommentsSection/CommentsSection";

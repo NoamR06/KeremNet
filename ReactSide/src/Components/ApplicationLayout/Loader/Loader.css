@@ -10,8 +10,8 @@
   border: 0.5em solid rgba(0, 0, 0, 0.1);
   border-left-color: #333;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 8vw;
+  height: 8vw;
   animation: spin 1s linear infinite;
 }
 

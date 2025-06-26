@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./AddCommentButton.css"
-import { argv } from 'process';
 
 interface AddCommentButtonProps {
   onButtonClick: (inputUsername: string, inputContent: string) => void;
