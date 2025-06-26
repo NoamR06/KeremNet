@@ -7,8 +7,8 @@ export class PostController {
 
     private postsService: PostsService;
 
-    constructor() {
-        this.postsService = new PostsService();
+    constructor(Services: PostsService) {
+        this.postsService = Services;
     }
 
     public async createPost(req: Request, res: Response): Promise<void> {
