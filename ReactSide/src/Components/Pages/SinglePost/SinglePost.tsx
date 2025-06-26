@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Post } from "../../Post/Post"
 import { PostComponent } from '../../Post/PostComponent/PostComponent';
+import Navbar from '../../ApplicationLayout/NavigationBar/navigationBar';
+import Footer from '../../ApplicationLayout/Footer/Footer';
+import "./SinglePost.css"
 
 
 export const SinglePost: React.FC = () => {
@@ -37,7 +40,13 @@ export const SinglePost: React.FC = () => {
     if (!post) return <p>Post not found.</p>;
     const {id, author, content, date, likes, comments} = post;
     return (
-        <PostComponent id={id} author={author} content={content} 
-        date={new Date(date)} post_likes={likes} post_comments={comments}></PostComponent>
+        <div className="grid-container">
+            <div className="top-section "><Navbar /></div>
+            <div className="middle-section">
+                <PostComponent id={id} author={author} content={content} 
+                date={new Date(date)} post_likes={likes} post_comments={comments}></PostComponent>
+            </div>
+            <div className="bottom-section"><Footer /></div>
+        </div>
     );
 };
