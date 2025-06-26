@@ -14,3 +14,9 @@
 .bottom-section {
     grid-row: 3;
 }
+
+.error-message{
+    width: 16.8vw;
+    height: 12vh;
+    margin: 0;
+}

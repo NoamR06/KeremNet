@@ -6,6 +6,8 @@ import { PostComponent } from '../../Post/PostComponent/PostComponent';
 import Navbar from '../../ApplicationLayout/NavigationBar/navigationBar';
 import Footer from '../../ApplicationLayout/Footer/Footer';
 import "./SinglePost.css"
+import ErrorComponent from '../../ApplicationLayout/ErrorMessage/Error';
+import Loader from '../../ApplicationLayout/Loader/Loader';
 
 
 export const SinglePost: React.FC = () => {
@@ -34,10 +36,9 @@ export const SinglePost: React.FC = () => {
         fetchPost();
     }
     }, [post_id]);
-
-    if (loading) return <p>Loading post...</p>;
-    if (error) return <p>Error: {error}</p>;
-    if (!post) return <p>Post not found.</p>;
+    if (error) return <p> <ErrorComponent received_errors={error} /> </p>;
+    if (loading) return <p> <Loader/> </p>;
+    if (!post) return <p> <ErrorComponent received_errors={"Post Not Found"} /> </p>;
     const {id, author, content, date, likes, comments} = post;
     return (
         <div className="grid-container">

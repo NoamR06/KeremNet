@@ -4,6 +4,8 @@ import "./CommentsSection.css";
 import { v4 as uuidv4 } from 'uuid';
 import { AddCommentButton } from '../AddCommentButton/AddCommentButton';
 import { UserComments } from '../UserComments/UserComments';
+import ErrorComponent from '../../../ApplicationLayout/ErrorMessage/Error';
+import Loader from '../../../ApplicationLayout/Loader/Loader';
 
 export interface CommentsProps {
   post_id: string;
@@ -42,7 +44,9 @@ export const CommentsSection: React.FC<CommentsProps> = ({ post_id }) => {
         };
         setComments(prevComments => [...prevComments, newComment]);
     };
-  
+    if (error) return <p> <ErrorComponent received_errors={error} /> </p>;
+    if (loading) return <p> <Loader/> </p>;
+    if (!comments) return <p> <ErrorComponent received_errors={"Post Not Found"} /> </p>;
     return (
     <div className='comments'>
         <h2>Comments</h2> 
