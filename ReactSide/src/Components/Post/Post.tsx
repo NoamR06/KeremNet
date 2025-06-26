@@ -2,6 +2,8 @@ import { PostComponent } from "./PostComponent/PostComponent";
 import { Comment } from "./CommentComponent/Comment";
 import { useEffect, useState } from "react";
 import './Post.css'
+import Loader from "../ApplicationLayout/Loader/Loader";
+import ErrorComponent from "../ApplicationLayout/ErrorMessage/Error";
 
 export interface Post {
     id: string;
@@ -27,8 +29,7 @@ export const Posts: React.FC = () => {
         const data: Post[] = await response.json();
         setPosts(data);
         } catch (err: any) {
-        setError(`Looks like we have an error! Please try re-loading. 
-            If it doesn't work, please contact us with the following error: ${err.message}`);
+        setError(err.message);
         } finally {
         setLoading(false);
         }
@@ -37,8 +38,8 @@ export const Posts: React.FC = () => {
     fetchPosts();
     }, []);
 
-    if (error) return <p>{error}</p>;
-    if (loading) return <p> Loading </p>;
+    if (error) return <p> <ErrorComponent received_errors={error} /> </p>;
+    if (loading) return <p> <Loader/> </p>;
     return (
         <div className="posts-container">
             {posts.map(({id, author, content, date, likes, comments}) => (
