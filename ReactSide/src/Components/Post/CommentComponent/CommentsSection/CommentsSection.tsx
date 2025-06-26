@@ -49,9 +49,9 @@ export const CommentsSection: React.FC<CommentsProps> = ({ post_id }) => {
     if (!comments) return <p> <ErrorComponent received_errors={"Post Not Found"} /> </p>;
     return (
     <div className='comments'>
+        <AddCommentButton onButtonClick={handleAddComment}/>
         <h2>Comments</h2> 
         <UserComments post_comments={comments} />
-        <AddCommentButton onButtonClick={handleAddComment}/>
     </div>
   )
 };
