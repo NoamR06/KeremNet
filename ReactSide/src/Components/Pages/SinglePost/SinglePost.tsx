@@ -14,7 +14,7 @@ export const SinglePost: React.FC = () => {
     useEffect(() => {
     const fetchPost = async () => {
         try {
-        const response = await fetch(`http://localhost:3001/posts/${post_id}`);
+        const response = await fetch(`http://localhost:3002/posts/${post_id}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

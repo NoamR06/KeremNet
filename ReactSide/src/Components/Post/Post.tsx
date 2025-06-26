@@ -22,7 +22,7 @@ export const Posts: React.FC = () => {
     useEffect   (() => {
     const fetchPosts = async () => {
         try {
-        const response = await fetch('http://localhost:3001/posts');
+        const response = await fetch('http://localhost:3002/posts');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
