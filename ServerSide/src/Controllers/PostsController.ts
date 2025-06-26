@@ -5,10 +5,7 @@ import { PostsService } from '../Services/PostsServices';
 
 export class PostController {
 
-    private postsService: PostsService;
-
-    constructor(Services: PostsService) {
-        this.postsService = Services;
+    constructor(private postsService: PostsService) {
     }
 
     public async createPost(req: Request, res: Response): Promise<void> {
