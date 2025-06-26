@@ -16,6 +16,3 @@ app.use('/application', ApplicationRoutes)
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
-
-//Fix 2 package.json
-//Fix x2 posts
