@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import './Post.css'
 import Loader from "../ApplicationLayout/Loader/Loader";
 import ErrorComponent from "../ApplicationLayout/ErrorMessage/Error";
+import { BASE_API_URL } from "../../Constants/constants";
 
 export interface Post {
     id: string;
@@ -22,7 +23,7 @@ export const Posts: React.FC = () => {
     useEffect   (() => {
     const fetchPosts = async () => {
         try {
-        const response = await fetch('http://localhost:3002/posts');
+        const response = await fetch(`${BASE_API_URL}/posts`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -44,7 +45,7 @@ export const Posts: React.FC = () => {
         <div className="posts-container">
             {posts.map(({id, author, content, date, likes, comments}) => (
             <PostComponent id={id} author={author} content={content}
-            date={new Date(date)} post_likes={likes} post_comments={[]}></PostComponent>
+            date={new Date(date)} post_likes={likes} post_comments={comments}></PostComponent>
             ))}
         </div>
     );

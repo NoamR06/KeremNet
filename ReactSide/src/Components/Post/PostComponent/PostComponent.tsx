@@ -24,7 +24,7 @@ export const PostComponent: React.FC<PostComponentProps> = ({id, author, content
       <p id="post_content">{content}</p>
       <p id="post_release_date">{date.toLocaleDateString()} at {date.toLocaleTimeString()}</p>
       <LikeComponent post_likes={post_likes}/>
-      <CommentsSection post_id={id} />
+      <CommentsSection post_comments={post_comments} />
     </div>
 
   )
