@@ -14,7 +14,6 @@ export interface PostComponentProps {
 }
 
 export const PostComponent: React.FC<PostComponentProps> = ({id, author, content, date, post_likes, post_comments}) => {
-  // Create 
   post_comments.map((comment) => (
     comment.date = new Date(comment.date)
   ));
@@ -25,7 +24,7 @@ export const PostComponent: React.FC<PostComponentProps> = ({id, author, content
       <p id="post_content">{content}</p>
       <p id="post_release_date">{date.toLocaleDateString()} at {date.toLocaleTimeString()}</p>
       <LikeComponent post_likes={post_likes}/>
-      <CommentsSection post_comments={post_comments} />
+      <CommentsSection post_id={id} />
     </div>
 
   )

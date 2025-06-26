@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Comment } from '../Comment';
 import "./CommentsSection.css";
 import { v4 as uuidv4 } from 'uuid';
@@ -6,19 +6,41 @@ import { AddCommentButton } from '../AddCommentButton/AddCommentButton';
 import { UserComments } from '../UserComments/UserComments';
 
 export interface CommentsProps {
-  post_comments: Comment[];
+  post_id: string;
 }
 
-export const CommentsSection: React.FC<CommentsProps> = ({ post_comments }) => {
-    const [comments, setComments] = useState(post_comments);
+export const CommentsSection: React.FC<CommentsProps> = ({ post_id }) => {
+    const [comments, setComments] = useState<Comment[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
   
+    useEffect(() => {
+        const fetchComments = async () => {
+            try {
+                const response = await fetch(`http://localhost:3002/posts/${post_id}/comments`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data: Comment[] = await response.json();
+                setComments(data);
+            } catch (err: any) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchComments();
+    }, []);
+
     const handleAddComment = (inputUsername: string, inputContent: string) => {
-      setComments([...comments, ({
-        id: uuidv4(),
-        author: inputUsername || "Anonymous",
-        content: inputContent || "No content",
-        date: new Date(),
-      })]);
+        const newComment: Comment = {
+            id: uuidv4(),
+            author: inputUsername,
+            content: inputContent,
+            date: new Date(),
+        };
+        setComments(prevComments => [...prevComments, newComment]);
     };
   
     return (

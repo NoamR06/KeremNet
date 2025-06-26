@@ -44,7 +44,7 @@ export const Posts: React.FC = () => {
         <div className="posts-container">
             {posts.map(({id, author, content, date, likes, comments}) => (
             <PostComponent id={id} author={author} content={content}
-            date={new Date(date)} post_likes={likes} post_comments={comments}></PostComponent>
+            date={new Date(date)} post_likes={likes} post_comments={[]}></PostComponent>
             ))}
         </div>
     );
