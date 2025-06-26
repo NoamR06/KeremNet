@@ -27,7 +27,6 @@ export class PostController {
     }
 
     public async getPostByID(req: Request, res: Response): Promise<void> {
-        const Posts = this.postsService.GetAllPosts();
         const post = this.postsService.GetPostbyID(req.params.id);
         if (post) {
             res.json(post);
@@ -46,7 +45,6 @@ export class PostController {
     }
 
     public async getCommentsByPostID(req: Request, res: Response): Promise<void> {
-        const Posts = this.postsService.GetAllPosts();
         const post = await this.postsService.GetPostbyID(req.params.id);
         if (post) {
             res.json(post.comments);
