@@ -45,7 +45,7 @@ export class PostController {
     }
 
     public async getCommentsByPostID(req: Request, res: Response): Promise<void> {
-        const post = await this.postsService.GetPostbyID(req.params.id);
+        const post = this.postsService.GetPostbyID(req.params.id);
         if (post) {
             res.json(post.comments);
         } else {

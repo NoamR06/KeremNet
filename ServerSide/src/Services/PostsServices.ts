@@ -28,11 +28,11 @@ export class PostsService {
         this.postsSaver.push(userData);
     }
 
-    public GetAllPosts(): Post[] {
+    public GetAllPosts(): Post[] {  
         return this.postsSaver;
     }
 
-    public async GetPostbyID(id: string): Promise<Post | undefined>{
-        return this.postsSaver.find((post) => post.id === id);
+    public GetPostbyID(id: string): Post | undefined{
+        return this.postsSaver.find((post) => post.id == id);
     }
 }
