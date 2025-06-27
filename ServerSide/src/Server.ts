@@ -5,9 +5,9 @@ import cors from 'cors'
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3002;
-
+const allowedOrigin = 'http://localhost:3000'; 
 app.use(cors({
-    origin: '*'
+    origin: allowedOrigin
 }))
 
 app.use('/posts', PostRoutes)
