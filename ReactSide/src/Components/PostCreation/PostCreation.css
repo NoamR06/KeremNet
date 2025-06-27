@@ -1,0 +1,75 @@
+
+.post_creation{
+    width: 50vw;
+    height: 70vh;
+    justify-self: center;
+    align-self: center;
+    border: 0.2em solid #374151;
+    padding: 1em;
+}
+
+#success_message{
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 0.1em solid #10b981;
+    padding: 1em;
+    border-radius: 0.5em;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 1em;
+    opacity: 1;
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+.form-group p {
+    display: block;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5em;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 80%;
+    padding: 0.75em;
+    border: 0.1em solid #d1d5db;
+    border-radius: 0.5em;
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.3px #bfdbfe;
+}
+
+#create-post-btn {
+    width: 100%;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.8em 1em;
+    border-radius: 0.5em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#create-post-btn:hover {
+    background: #2563eb;
+}

@@ -1,0 +1,17 @@
+.grid-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 97.5vh;
+    width: 97vw;
+}
+.top-section {
+    grid-row: 1;
+}
+
+.middle-section {
+    grid-row: 2;
+}
+
+.bottom-section {
+    grid-row: 3;
+}
