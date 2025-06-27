@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ErrorComponent from "../ApplicationLayout/ErrorMessage/Error";
 import { BASE_API_URL } from "../../Constants/constants";
+import "./PostCreation.css";
 
 const PostCreation: React.FC = () => {
   const [post_author, setAuthor] = useState('');
