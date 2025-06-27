@@ -1,0 +1,15 @@
+#post_add_comment_button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.8em 1.6em;
+  border-radius: 0.4em;
+  font-size: 0.8em;
+  cursor: pointer;
+  margin-top: 0.7em;
+  width: 100%;
+}
+
+#post_add_comment_button:hover {
+  background: #059669;
+}
