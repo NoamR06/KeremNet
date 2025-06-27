@@ -1,0 +1,236 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "author": "Kerem",
+            "content": "Hello, this is my first post!",
+            "date": "2025-06-24T12:00:00Z",
+            "likes": 0,
+            "comments": [
+                {
+                    "id": 1,
+                    "author": "John",
+                    "content": "Great post, Kerem!",
+                    "date": "2023-10-01T12:01:00Z",
+                    "likes": 2
+                },
+                {
+                    "id": 2,
+                    "author": "Jane",
+                    "content": "Looking forward to more updates!",
+                    "date": "2023-10-01T12:02:00Z",
+                    "likes": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "author": "Noam",
+            "content": "I think kerem is the best course!",
+            "date": "2025-05-01T12:05:00Z",
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 3,
+            "author": "Zoee",
+            "content": "I'm the best zebra",
+            "date": "2025-01-01T12:10:00Z",
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 1,
+            "author": "Kerem",
+            "content": "Hello, this is my first post!",
+            "date": "2025-06-24T12:00:00Z",
+            "likes": 0,
+            "comments": [
+                {
+                    "id": 1,
+                    "author": "John",
+                    "content": "Great post, Kerem!",
+                    "date": "2023-10-01T12:01:00Z",
+                    "likes": 2
+                },
+                {
+                    "id": 2,
+                    "author": "Jane",
+                    "content": "Looking forward to more updates!",
+                    "date": "2023-10-01T12:02:00Z",
+                    "likes": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "author": "Noam",
+            "content": "I think kerem is the best course!",
+            "date": "2025-05-01T12:05:00Z",
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 3,
+            "author": "Zoee",
+            "content": "I'm the best zebra",
+            "date": "2025-01-01T12:10:00Z",
+            "likes": 0,
+            "comments": []
+        },{
+            "id": 1,
+            "author": "Kerem",
+            "content": "Hello, this is my first post!",
+            "date": "2025-06-24T12:00:00Z",
+            "likes": 0,
+            "comments": [
+                {
+                    "id": 1,
+                    "author": "John",
+                    "content": "Great post, Kerem!",
+                    "date": "2023-10-01T12:01:00Z",
+                    "likes": 2
+                },
+                {
+                    "id": 2,
+                    "author": "Jane",
+                    "content": "Looking forward to more updates!",
+                    "date": "2023-10-01T12:02:00Z",
+                    "likes": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "author": "Noam",
+            "content": "I think kerem is the best course!",
+            "date": "2025-05-01T12:05:00Z",
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 3,
+            "author": "Zoee",
+            "content": "I'm the best zebra",
+            "date": "2025-01-01T12:10:00Z",
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 1,
+            "author": "Kerem",
+            "content": "Hello, this is my first post!",
+            "date": "2025-06-24T12:00:00Z",
+            "likes": 0,
+            "comments": [
+                {
+                    "id": 1,
+                    "author": "John",
+                    "content": "Great post, Kerem!",
+                    "date": "2023-10-01T12:01:00Z",
+                    "likes": 2
+                },
+                {
+                    "id": 2,
+                    "author": "Jane",
+                    "content": "Looking forward to more updates!",
+                    "date": "2023-10-01T12:02:00Z",
+                    "likes": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "author": "Noam",
+            "content": "I think kerem is the best course!",
+            "date": "2025-05-01T12:05:00Z",
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 3,
+            "author": "Zoee",
+            "content": "I'm the best zebra",
+            "date": "2025-01-01T12:10:00Z",
+            "likes": 0,
+            "comments": []
+        },{
+            "id": 1,
+            "author": "Kerem",
+            "content": "Hello, this is my first post!",
+            "date": "2025-06-24T12:00:00Z",
+            "likes": 0,
+            "comments": [
+                {
+                    "id": 1,
+                    "author": "John",
+                    "content": "Great post, Kerem!",
+                    "date": "2023-10-01T12:01:00Z",
+                    "likes": 2
+                },
+                {
+                    "id": 2,
+                    "author": "Jane",
+                    "content": "Looking forward to more updates!",
+                    "date": "2023-10-01T12:02:00Z",
+                    "likes": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "author": "Noam",
+            "content": "I think kerem is the best course!",
+            "date": "2025-05-01T12:05:00Z",
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 3,
+            "author": "Zoee",
+            "content": "I'm the best zebra",
+            "date": "2025-01-01T12:10:00Z",
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 1,
+            "author": "Kerem",
+            "content": "Hello, this is my first post!",
+            "date": "2025-06-24T12:00:00Z",
+            "likes": 0,
+            "comments": [
+                {
+                    "id": 1,
+                    "author": "John",
+                    "content": "Great post, Kerem!",
+                    "date": "2023-10-01T12:01:00Z",
+                    "likes": 2
+                },
+                {
+                    "id": 2,
+                    "author": "Jane",
+                    "content": "Looking forward to more updates!",
+                    "date": "2023-10-01T12:02:00Z",
+                    "likes": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "author": "Noam",
+            "content": "I think kerem is the best course!",
+            "date": "2025-05-01T12:05:00Z",
+            "likes": 0,
+            "comments": []
+        },
+        {
+            "id": 3,
+            "author": "Zoee",
+            "content": "I'm the best zebra",
+            "date": "2025-01-01T12:10:00Z",
+            "likes": 0,
+            "comments": []
+        }
+    ]
+}
