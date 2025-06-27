@@ -10,6 +10,13 @@
   width: 100%;
 }
 
+.Add_New_Comment_Form{
+  border-top: 0.2em solid #aeb0b4;
+  border-bottom: 0.2em solid #aeb0b4;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
 #post_add_comment_button:hover {
   background: #059669;
 }

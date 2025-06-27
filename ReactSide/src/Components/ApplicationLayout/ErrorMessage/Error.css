@@ -1,0 +1,16 @@
+.error-text {
+  color: #cc0033;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+
+.error-message {
+  background-color: #fce4e4;
+  border: 0.08em solid #fcc2c3;
+  padding: 1em 1.5em;
+  width: 28vw;
+  margin: 10vw auto;
+  display: flex;
+}

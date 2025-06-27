@@ -2,6 +2,9 @@ import { PostComponent } from "./PostComponent/PostComponent";
 import { Comment } from "./CommentComponent/Comment";
 import { useEffect, useState } from "react";
 import './Post.css'
+import Loader from "../ApplicationLayout/Loader/Loader";
+import ErrorComponent from "../ApplicationLayout/ErrorMessage/Error";
+import { BASE_API_URL } from "../../Constants/constants";
 
 export interface Post {
     id: string;
@@ -20,15 +23,14 @@ export const Posts: React.FC = () => {
     useEffect   (() => {
     const fetchPosts = async () => {
         try {
-        const response = await fetch('http://localhost:3001/posts');
+        const response = await fetch(`${BASE_API_URL}/posts`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data: Post[] = await response.json();
         setPosts(data);
         } catch (err: any) {
-        setError(`Looks like we have an error! Please try re-loading. 
-            If it doesn't work, please contact us with the following error: ${err.message}`);
+        setError(err.message);
         } finally {
         setLoading(false);
         }
@@ -37,8 +39,8 @@ export const Posts: React.FC = () => {
     fetchPosts();
     }, []);
 
-    if (error) return <p>{error}</p>;
-    if (loading) return <p> Loading </p>;
+    if (error) return <p> <ErrorComponent received_errors={error} /> </p>;
+    if (loading) return <p> <Loader/> </p>;
     return (
         <div className="posts-container">
             {posts.map(({id, author, content, date, likes, comments}) => (

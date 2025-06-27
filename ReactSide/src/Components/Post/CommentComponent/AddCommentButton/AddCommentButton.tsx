@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./AddCommentButton.css"
-import { argv } from 'process';
 
 interface AddCommentButtonProps {
   onButtonClick: (inputUsername: string, inputContent: string) => void;
@@ -19,7 +18,7 @@ export const AddCommentButton: React.FC<AddCommentButtonProps> = ({ onButtonClic
     };
 
     return (
-    <div>
+    <div className="Add_New_Comment_Form">
         <input type="text" value={inputUsername} onChange={handleInputUsernameChange} id="post_add_comment_name" 
         placeholder="User name" />
         <input type="text" value={inputContent} onChange={handleInputContentChange} id="post_add_comment_content" 

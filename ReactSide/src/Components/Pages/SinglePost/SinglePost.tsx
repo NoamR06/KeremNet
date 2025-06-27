@@ -3,6 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Post } from "../../Post/Post"
 import { PostComponent } from '../../Post/PostComponent/PostComponent';
+import Navbar from '../../ApplicationLayout/NavigationBar/navigationBar';
+import Footer from '../../ApplicationLayout/Footer/Footer';
+import "./SinglePost.css"
+import ErrorComponent from '../../ApplicationLayout/ErrorMessage/Error';
+import Loader from '../../ApplicationLayout/Loader/Loader';
 
 
 export const SinglePost: React.FC = () => {
@@ -14,7 +19,7 @@ export const SinglePost: React.FC = () => {
     useEffect(() => {
     const fetchPost = async () => {
         try {
-        const response = await fetch(`http://localhost:3001/posts/${post_id}`);
+        const response = await fetch(`http://localhost:3002/posts/${post_id}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -31,13 +36,18 @@ export const SinglePost: React.FC = () => {
         fetchPost();
     }
     }, [post_id]);
-
-    if (loading) return <p>Loading post...</p>;
-    if (error) return <p>Error: {error}</p>;
-    if (!post) return <p>Post not found.</p>;
+    if (error) return <p> <ErrorComponent received_errors={error} /> </p>;
+    if (loading) return <p> <Loader/> </p>;
+    if (!post) return <p> <ErrorComponent received_errors={"Post Not Found"} /> </p>;
     const {id, author, content, date, likes, comments} = post;
     return (
-        <PostComponent id={id} author={author} content={content} 
-        date={new Date(date)} post_likes={likes} post_comments={comments}></PostComponent>
+        <div className="grid-container">
+            <div className="top-section "><Navbar /></div>
+            <div className="middle-section">
+                <PostComponent id={id} author={author} content={content} 
+                date={new Date(date)} post_likes={likes} post_comments={comments}></PostComponent>
+            </div>
+            <div className="bottom-section"><Footer /></div>
+        </div>
     );
 };

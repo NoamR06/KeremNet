@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Comment } from "../CommentComponent/Comment";
 import './PostComponent.css';
 import { CommentsSection } from "../CommentComponent/CommentsSection/CommentsSection";
@@ -14,7 +14,6 @@ export interface PostComponentProps {
 }
 
 export const PostComponent: React.FC<PostComponentProps> = ({id, author, content, date, post_likes, post_comments}) => {
-  // Create 
   post_comments.map((comment) => (
     comment.date = new Date(comment.date)
   ));

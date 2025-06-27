@@ -13,7 +13,7 @@ export const UserComments: React.FC<UserCommentsProps> = ({ post_comments }) => 
           post_comments.map(({author, content, date}) => (
           <div className="comment">
             <p id="post_comment_content"><strong>{author}</strong>: {content}</p>
-            <p id="post_comment_date">{date.toLocaleDateString()} at {date.toLocaleTimeString()}</p>
+            <p id="post_comment_date">{new Date(date).toLocaleDateString()} at {new Date(date).toLocaleTimeString()}</p>
           </div>
         ))
         ) : (
