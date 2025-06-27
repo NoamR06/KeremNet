@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Comment } from "./CommentComponent/Comment";
+import { Comment } from "../CommentComponent/Comment";
 import './PostComponent.css';
-import { CommentsSection } from "./CommentComponent/CommentsSection/CommentsSection";
-import { LikeComponent } from "./LikeComponent/LikeComponent";
+import { CommentsSection } from "../CommentComponent/CommentsSection/CommentsSection";
+import { LikeComponent } from "../LikeComponent/LikeComponent";
 
 export interface PostComponentProps {
   id: string;
